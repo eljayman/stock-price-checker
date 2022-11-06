@@ -79,7 +79,7 @@ function renderPastSearches() {
       let historyButton = document.createElement("button");
       historyButton.textContent = el;
       historyButton.setAttribute("class", "button");
-      recentSearches.appendChild(historyButton);
+      recentSearches.append(historyButton);
     });
   }
 }
@@ -155,25 +155,6 @@ function pastTopics() {
   }
 }
 
-// this takes past searches in local storage and renders them to the index.html home page.
-function renderPastSearches() {
-  let pastSearches = JSON.parse(localStorage.getItem("pastArticles"));
-  let recentSearches = document.querySelector("h2");
-  if (!pastSearches) return;
-  if (pastSearches.length) {
-    console.log(typeof pastSearches);
-    console.log(pastSearches, "this is past searches");
-    pastSearches.forEach((el) => {
-      var historyButton = document.createElement("button");
-      historyButton.textContent = el;
-      historyButton.setAttribute("class", "button historyButton");
-      recentSearches.appendChild(historyButton);
-    });
-  }
-}
-
-//call function to render past searches
-renderPastSearches();
 //this gives a click event to the past search buttons
 var pastButton = document.querySelectorAll(".historyButton");
 [...pastButton].forEach(function (ele) {
