@@ -1,4 +1,4 @@
-// Dark Light Mode Function
+// Dark Light Mode Functiont
 var themeSwitcher = document.querySelector("#theme-switcher");
 var page = document.querySelector(".page");
 var modeDefault = "dark";
@@ -15,7 +15,6 @@ themeSwitcher.addEventListener("click", function () {
 
 var SearchData;
 var articleList = document.getElementById("article-list");
-var articleListPresent = document.getElementById("present-article-list");
 
 SearchData = parseURL();
 let presentDateRange = getNewDateRange(SearchData);
@@ -61,19 +60,23 @@ console.log(`present data => ${JSON.stringify(presentDateRange)}`);
 handleSearchRes(SearchData);
 handleSearchRes(presentDateRange, false);
 
-function articleFeed(articleData, past = false) {
+function articleFeed(articleData) {
   console.log("article feed => " + articleData.feed);
-  for (let i = 0; i < 5; ++i) {
+  for (let i = 0; i < 5; i++) {
     let feed = articleData.feed[i];
     let li = document.createElement("li");
     let a = document.createElement("a");
-    // console.log(articleData[i]);
+    let img = document.createElement("img");
+    if (feed.banner_image) {
+      img.setAttribute("src", feed.banner_image);
+      li.appendChild(img);
+    }
+    console.log(articleData.feed[i]);
     a.setAttribute("href", feed.url);
     a.setAttribute("target", "_blank");
     a.textContent = feed.title;
     li.appendChild(a);
-    if (past) articleList.appendChild(li);
-    else articleListPresent.appendChild(li);
+    articleList.appendChild(li);
   }
 
   // articleData.feed.forEach((feed) => {
@@ -126,10 +129,10 @@ function handleSearchRes(SearchData, past = true) {
   } else {
     url = `https://www.alphavantage.co/query?function=NEWS_SENTIMENT&ticker=${SearchData.ticker}&time_from=${dateStartValue}&time_to=${dateEndValue}&apikey=Y7EZGMG4B18PRI2S`;
   }
-  getArticles(url, past);
+  getArticles(url);
 }
 
-function getArticles(url, past = true) {
+function getArticles(url) {
   articleList.innerHTML = "";
 
   fetch(url)
@@ -140,7 +143,7 @@ function getArticles(url, past = true) {
     .then((data) => {
       //console.log(data);
 
-      articleFeed(data, past);
+      articleFeed(data);
     });
 }
 function getHistoricStockPrice(

@@ -71,12 +71,12 @@ function symbolLookup() {
 // this takes past searches in local storage and renders them to the index.html home page.
 function renderPastSearches() {
   let pastSearches = JSON.parse(localStorage.getItem("pastArticles"));
-  let recentSearches = document.querySelector("h2");
+  let recentSearches = document.querySelector("ul");
   if (pastSearches.length) {
     console.log(typeof pastSearches);
     console.log(pastSearches, "this is past searches");
     pastSearches.forEach((el) => {
-      let historyButton = document.createElement("button");
+      let historyButton = document.createElement("li");
       historyButton.textContent = el;
       historyButton.setAttribute("class", "button");
       recentSearches.append(historyButton);
