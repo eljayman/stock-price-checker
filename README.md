@@ -37,10 +37,10 @@ Link to site: https://bikeller104.github.io/StockArticleComparison
 
 ## Credits
 
-Brent - https://github.com/bikeller104
-Leland - https://github.com/eljayman
-Ari - https://github.com/arinielson
-Ryan - https://github.com/rtcottle
+- Brent - https://github.com/bikeller104
+- Leland - https://github.com/eljayman
+- Ari - https://github.com/arinielson
+- Ryan - https://github.com/rtcottle
 
 Resources:
 
