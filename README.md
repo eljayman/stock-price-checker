@@ -29,7 +29,7 @@ N/A
 
 Try searching your favorite stock tickers to display articles and prices past and present.
 
-Link to site: https://bikeller104.github.io/StockArticleComparison
+Link to site: https://eljayman.github.io/stock-price-checker/
 
 ![Home Page](./SSP1index.png)
 
